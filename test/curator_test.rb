@@ -17,14 +17,17 @@ class CuratorTest < Minitest::Test
     assert_equal [], curator.artists
   end
 
+  def test_it_starts_with_zero_photographs
+    curator = Curator.new
+    assert_equal [], curator.photographs
+  end
+
 end
 
 
 
 
-  # pry(main)> curator.artists
-  # #=> []
-  #
+
   # pry(main)> curator.photographs
   # #=> []
   #

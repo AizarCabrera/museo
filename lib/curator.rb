@@ -2,10 +2,11 @@ require 'pry'
 
 class Curator
 
-attr_reader :artists
+attr_reader :artists, :photographs
 
   def initialize
-    @artists =[]
+    @artists     =[]
+    @photographs = []
   end
 
 end
