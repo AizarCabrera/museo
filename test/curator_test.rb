@@ -12,14 +12,16 @@ class CuratorTest < Minitest::Test
     assert_instance_of Curator, curator
   end
 
+  def test_it_starts_with_zero_artists
+    curator = Curator.new
+    assert_equal [], curator.artists
+  end
+
 end
 
 
 
 
-  # pry(main)> curator = Curator.new
-  # #=> #<Curator:0x00007fd3a0383dc8...>
-  #
   # pry(main)> curator.artists
   # #=> []
   #
