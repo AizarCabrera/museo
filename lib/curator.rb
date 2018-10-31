@@ -9,4 +9,9 @@ attr_reader :artists, :photographs
     @photographs = []
   end
 
+  def add_photograph(photo)
+    @photographs << photo
+  end
+
+
 end

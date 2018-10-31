@@ -22,33 +22,35 @@ class CuratorTest < Minitest::Test
     assert_equal [], curator.photographs
   end
 
+  def test_it_can_add_photos
+  photo_1 = {
+   id: "1",
+   name: "Rue Mouffetard, Paris (Boy with Bottles)",
+   artist_id: "1",
+   year: "1954"
+  }
+
+  photo_2 = {
+   id: "2",
+   name: "Moonrise, Hernandez",
+   artist_id: "2",
+   year: "1941"
+ }
+
+    curator = Curator.new
+    curator.add_photograph(photo_1)
+    curator.add_photograph(photo_2)
+    assert_equal [photo_1, photo_2], curator.photographs
+  end
+
 end
 
 
 
 
 
-  # pry(main)> curator.photographs
-  # #=> []
   #
-  # pry(main)> photo_1 = {
-  #   id: "1",
-  #   name: "Rue Mouffetard, Paris (Boy with Bottles)",
-  #   artist_id: "1",
-  #   year: "1954"
-  # }
-  #
-  # pry(main)> photo_2 = {
-  #   id: "2",
-  #   name: "Moonrise, Hernandez",
-  #   artist_id: "2",
-  #   year: "1941"
-  # }
-  #
-  # pry(main)> curator.add_photograph(photo_1)
-  #
-  # pry(main)> curator.add_photograph(photo_2)
-  #
+  # pry(main)>
   # pry(main)> curator.photographs
   # #=> [#<Photograph:0x00007fd3a10cda60...>, #<Photograph:0x00007fd3a1801278...>]
   #
