@@ -73,6 +73,31 @@ class CuratorTest < Minitest::Test
     assert_equal "Henri Cartier-Bresson", curator.artists.first.name
   end
 
+  def test_it_can_find_artist_by_id
+    attributes_1 = {
+      id: "1",
+      name: "Henri Cartier-Bresson",
+      born: "1908",
+      died: "2004",
+      country: "France"
+     }
+
+    attributes_2 = {
+      id: "2",
+      name: "Ansel Adams",
+      born: "1902",
+      died: "1984",
+      country: "United States"
+     }
+    curator = Curator.new
+    artist_1 = Artist.new(attributes_1)
+    artist_2 = Artist.new(attributes_2)
+    curator.add_artist(artist_1)
+    curator.add_artist(artist_2)
+    assert_equal artist_1, curator.find_artist_by_id("1")
+    assert_instance_of Artist, curator.find_artist_by_id("1")
+    assert_equal "Henri Cartier-Bresson", curator.artists.first.name
+  end
 
 end
 
