@@ -30,7 +30,7 @@ class CuratorTest < Minitest::Test
    year: "1954"
   }
 
-  photo_2 = {
+  attributes_2 = {
    id: "2",
    name: "Moonrise, Hernandez",
    artist_id: "2",
@@ -39,11 +39,15 @@ class CuratorTest < Minitest::Test
 
     curator = Curator.new
     photo_1 = Photograph.new(attributes_1)
+    photo_2 = Photograph.new(attributes_2)
     curator.add_photograph(photo_1)
     curator.add_photograph(photo_2)
     assert_equal [photo_1, photo_2], curator.photographs
     assert_instance_of Photograph, curator.photographs.first
+    assert_equal "Rue Mouffetard, Paris (Boy with Bottles)", curator.photographs.first.name
   end
+
+
 
 end
 
@@ -51,9 +55,6 @@ end
 
 
 
-  # pry(main)> curator.photographs.first
-  # #=> #<Photograph:0x00007fd3a10cda60 @artist_id="1", @id="1", @name="Rue Mouffetard, Paris (Boy with Bottles)", @year="1954">
-  #
   # pry(main)> curator.photographs.first.name
   # #=> "Rue Mouffetard, Paris (Boy with Bottles)"
   #
